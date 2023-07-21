@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "...",
-  "homepage_url": "https://github.com/ahsanazim/eye_tracking_research",
+  "homepage_url": "https://github.com/garb-browser/garb-extension",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -34,5 +34,5 @@
     "geolocation",
     "https://*/*"
   ],
-  "content_scripts": []
+  "content_scripts": [ ]
 }
