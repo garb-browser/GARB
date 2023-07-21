@@ -1,5 +1,3 @@
-/**************** YOUR CODE ****************/
-
 // https://stackoverflow.com/questions/55637406/how-to-remove-this-cross-origin-read-blocking-corb-blocked-cross-origin-respo
 // https://www.chromium.org/Home/chromium-security/extension-content-script-fetches
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
@@ -8,6 +6,9 @@
 // https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data
 // https://developer.chrome.com/extensions/runtime#method-sendMessage
 // https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
+
+const API_URL = "https://garb-api-service.onrender.com";
+const EXTRACT_URL = "https://garb-extraction-service.onrender.com";
 
 let authenticated = false;
 let authUser = 'testUser';
@@ -19,8 +20,7 @@ chrome.runtime.onMessage.addListener(
 
       // Request to scrape the webpage and return the text data
       if (request.contentScriptQuery == "extractURLContent") {
-        //var url = "https://mysterious-fortress-86319.herokuapp.com/";
-        var url = "https://garb-eyetracking.herokuapp.com/";
+        var url = EXTRACT_URL;
         fetch(url, {
             method: "POST",
             mode: "cors", // no-cors, cors, *same-origin
@@ -43,7 +43,7 @@ chrome.runtime.onMessage.addListener(
       // Request to save the current pagesession data to the database
       else if (request.contentScriptQuery == "saveToDatabase") {
         // alert("inside savetodatabase")
-        var url = "https://garb-user-pagesession.herokuapp.com/pageSessions";
+        var url = `${API_URL}/pageSessions`;
         alert("saving to DB");
         //const testData = {
         //    url: 'testURL',
@@ -82,7 +82,7 @@ chrome.runtime.onMessage.addListener(
         // Get the user and url
         var user = request.data.user;
         var pageUrl = encodeURIComponent(request.data.url);
-        var url = `https://garb-user-pagesession.herokuapp.com/pageSessions/${user}/${pageUrl}`;
+        var url = `${API_URL}//pageSessions/${user}/${pageUrl}`;
         alert(url);
 
         fetch(url, {
@@ -180,7 +180,7 @@ function getUser() {
 // Function to sign up ---------------------------
 async function signup(username, password) {
   const fields = {username, password};
-  var url = `https://garb-user-pagesession.herokuapp.com/signup`;
+  var url = `${API_URL}/signup`;
 
   // Fetch request
   fetch(url, {
@@ -211,7 +211,7 @@ async function signup(username, password) {
 // Function to sign in ------------------------------
 async function signin(username, password) {
   const fields = {username, password};
-  var url = `https://garb-user-pagesession.herokuapp.com/signin`;
+  var url = `${API_URL}//signin`;
 
   // Fetch request
   await fetch(url, {

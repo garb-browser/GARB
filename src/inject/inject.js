@@ -1,11 +1,5 @@
 /* This page is currently being injected into *all* web pages */
 
-/* comands you can run to test that the content script is running:
-console.log("COMINGGGGGGGGGGGGGGGG");
-// https://stackoverflow.com/questions/40874759/chrome-get-url-of-active-content-script-tab
-alert(location.href);
-*/
-
 
 var lineQueue = new Array();
 const QUEUE_LENGTH = 10;
@@ -152,7 +146,6 @@ chrome.runtime.sendMessage(
                 // quadrant span into a container span representing
                 // the current line. Add this span to contentHTML
 
-           
                 if (quadNum == MAX_QUAD_NUM) {         // reached end of line (ie add span)
                     contentHTML += `<span class="line" id="${spanNum}">${currLineSpans.join('')}</span>`;
                     contentHTML += "<br>";
