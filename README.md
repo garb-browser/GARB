@@ -1,5 +1,4 @@
 # GARB: Gaze-Aware Reading-aid for the Browser
-## Julian Wu (Research under Professor Tim Tregubov)
 
 ### What is GARB?
 GARB stands for "Gaze-Aware Reading-aid for the Browser," which allows users to track their online reading through an eye tracking device.
@@ -14,22 +13,16 @@ There is also highlighting of lines to track user progress and collect data on t
     * Visual Studios 2019 (https://visualstudio.microsoft.com/downloads/)
     * Google Chrome Browser
 2. Hardware requirements:
-    * Tobii 4C Eyetracking device (https://gaming.tobii.com/product/tobii-eye-tracker-4c/)
+    * Tobii 4C/5 Eyetracking device (https://gaming.tobii.com/product/tobii-eye-tracker-4c/)
 
 ### Setup
 1. Clone the repo locally and open it with Visual Studios.
-`git clone https://github.com/julianxywu/GARB.git`
-2. Install necessary files
-    * `pip install -U flask`
-    * `pip install -U flask-cors`
-    * `pip install -U goose3`
-2. Activate the extension
-    * go to `chrome://extensions` and reload the extension by clicking Load Unpacked, and selecting/opening the `extension` folder/directory in the repo.
-    * Test it out by going to any web page (you can just use Wikipedia) and switch on the extension by clicking the relevant icon and "Activate."
-
+1. Activate the extension
+    * go to `chrome://extensions` and load the extension by clicking `Load Unpacked`, and selecting/opening the `extension` folder/directory in the repo.
+1. Install either: https://github.com/garb-browser/garb-gaze-events-service-mac on a mac or https://github.com/garb-browser/garb-gaze-events-service-windows
+      
 ### How To Run:
 1. Make sure all the steps from __Setup__ are followed!
-2. Turn on Tobii Eyetracking and calibrate. 
-3. From the top navigation bar, run the program `Main\Interaction_Interactors_101.csproj`. You can make sure that the project configuration (right next to the start button) is set to `Debug|AnyCPU`.
-4. You should see a terminal pop up with the message, "Server has started..."
+2. Turn on Tobii Eyetracking and calibrate.
+3. Start the gaze-events-service
 5. Now open up a webpage, use the extension on it, and you should see lines of text being highlighted in blue from your eye movement!
